@@ -11,24 +11,36 @@ public class TextController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		myState = States.Basement;
+		spacecounter = 1;
 		text.text = "Welcome! This very simple text-based adventure gives you an opportunity to " +
 					"test some of your assumptions and understandings around sex, consent, sexual " +
 					"assault, and rape.\n\n" +
 					"Trigger warning: As you might expect, some of this content could be very " +
 					"upsetting to those who've experienced sexual assault.\n\n" +
 					"Press SPACE to continue.";
-		spacecounter = 1;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			NextPage();
+			if (spacecounter == 1) {
+				myState = States.Basement;
+				print ("MyState = " + myState);
+				state_basement();
+				}
 		}
-		if (Input.GetKeyDown(KeyCode.T)) {
-			TouchPerson();
+		if (Input.GetKeyDown(KeyCode.L)) {
+			if (myState == States.Basement) {
+				myState = States.Bottom_of_stairs;
+				state_bottomofstairs();
+			}
+		}
+		if (Input.GetKeyDown(KeyCode.C)) {
+			if (myState == States.Basement) {
+				myState = States.Computer;
+				state_computer();
+			}
 		}
 	
 	}
@@ -42,33 +54,36 @@ public class TextController : MonoBehaviour {
 					"basement? \n\n" +
 					"Press L to leave.\n\n" +
 					"Press C to check which games are installed on the computer.";
-		if (Input.GetKeyDown(KeyCode.L) {
-			myState = States.Bottom_of_stairs;
-			text.text = "Hey, brave move! But you have a challenge to face before you can get out.\n\n" +
-						"A flash of light dazzles you, then fades away. When your eyes clear, you " +
-						"can see a large, dark form on your couch. It might be... someone lying there? " +
-						"You creep closer to figure out what it is, and as you do so, you move from between " +
-						"the shape and a monitor, letting light flood over it. It groans and moves. It's " +
-						"human! And... female? The person starts to sit up, then flops back into a prone " +
-						"position.\n\n" +
-						"'I'm so drunk,' she says. 'I can't even sit up. Wow, I've never been this drunk.' " +
-						"She starts to snore quietly.\n\n" +
-						"Press C to get her comfortable and make sure she won't choke if she throws up.\n\n" +
-						"Press T to take off the blanket and touch her.\n\n";
-		}
-		else if (Input.GetKeyDown(KeyCode.C) {
-			myState = States.Computer;
-			text.text = "You click on the Windows icon and look at the Start menu. You don't see any games " +
-						"or brand names from game makers. Huh. You look for Steam or Origin - zilch. Blizzard? " +
-						"Nothing. It's as though someone set up this computer purely for work or trolling the " +
-						"internet. Even the standard Microsoft games are absent. You shake your head disbelievingly. " +
-						"An icon on the desktop catches your eye: a Z filled in with bricks, sort of like the old " +
-						"Zork logo, but subtly different. Could it be a Zork clone game? Well, text games are " +
-						"pretty dorky, but any port in a storm, right?\n\n" +
-						"Press P to double-click on the Z icon.\n\n" +
-						"Press L to leave the computer and go outside.";
-		}
 	}
+	
+	void state_bottomofstairs() {
+		text.text = "Hey, brave move! But you have a challenge to face before you can get out.\n\n" +
+					"A flash of light dazzles you, then fades away. When your eyes clear, you " +
+					"can see a large, dark form on your couch. It might be... someone lying there? " +
+					"You creep closer to figure out what it is, and as you do so, you move from between " +
+					"the shape and a monitor, letting light flood over it. It groans and moves. It's " +
+					"human! And... female? The person starts to sit up, then flops back into a prone " +
+					"position.\n\n" +
+					"'I'm so drunk,' she says. 'I can't even sit up. Wow, I've never been this drunk.' " +
+					"She starts to snore quietly.\n\n" +
+					"Press C to get her comfortable and make sure she won't choke if she throws up.\n\n" +
+					"Press T to take off the blanket and touch her.\n\n";
+	}
+	
+	void state_computer() {
+		text.text = "You click on the Windows icon and look at the Start menu. You don't see any games " +
+					"or brand names from game makers. Huh. You look for Steam or Origin - zilch. Blizzard? " +
+					"Nothing. It's as though someone set up this computer purely for work or trolling the " +
+					"internet. Even the standard Microsoft games are absent. You shake your head disbelievingly. " +
+					"An icon on the desktop catches your eye: a Z filled in with bricks, sort of like the old " +
+					"Zork logo, but subtly different. Could it be a Zork clone game? Well, text games are " +
+					"pretty dorky, but any port in a storm, right?\n\n" +
+					"Press P to double-click on the Z icon.\n\n" +
+					"Press L to leave the computer and go outside.";
+	}
+	
+	
+	// I'm pretty sure this entire function is obsolete. 
 	
 	void NextPage() {
 		if (myState == States.Basement) {
@@ -87,6 +102,8 @@ public class TextController : MonoBehaviour {
 			}
 		
 	}
+	
+	// I'm pretty sure this entire function is obsolete. 
 	
 	void TouchPerson() {
 		if (spacecounter == 3) {
