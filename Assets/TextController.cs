@@ -6,7 +6,7 @@ public class TextController : MonoBehaviour {
 	
 	public Text text;
 	int spacecounter;
-	private enum States{Computer, Basement, Bottom_of_stairs, Landing, Top_of_stairs, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
+	private enum States{Game, Computer, Basement, Bottom_of_stairs, Landing, Top_of_stairs, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
 	private States myState;
 	
 	// Use this for initialization
@@ -43,10 +43,30 @@ public class TextController : MonoBehaviour {
 					"Press L to leave.\n\n" +
 					"Press C to check which games are installed on the computer.";
 		if (Input.GetKeyDown(KeyCode.L) {
-		
+			myState = States.Bottom_of_stairs;
+			text.text = "Hey, brave move! But you have a challenge to face before you can get out.\n\n" +
+						"A flash of light dazzles you, then fades away. When your eyes clear, you " +
+						"can see a large, dark form on your couch. It might be... someone lying there? " +
+						"You creep closer to figure out what it is, and as you do so, you move from between " +
+						"the shape and a monitor, letting light flood over it. It groans and moves. It's " +
+						"human! And... female? The person starts to sit up, then flops back into a prone " +
+						"position.\n\n" +
+						"'I'm so drunk,' she says. 'I can't even sit up. Wow, I've never been this drunk.' " +
+						"She starts to snore quietly.\n\n" +
+						"Press C to get her comfortable and make sure she won't choke if she throws up.\n\n" +
+						"Press T to take off the blanket and touch her.\n\n";
 		}
 		else if (Input.GetKeyDown(KeyCode.C) {
-		
+			myState = States.Computer;
+			text.text = "You click on the Windows icon and look at the Start menu. You don't see any games " +
+						"or brand names from game makers. Huh. You look for Steam or Origin - zilch. Blizzard? " +
+						"Nothing. It's as though someone set up this computer purely for work or trolling the " +
+						"internet. Even the standard Microsoft games are absent. You shake your head disbelievingly. " +
+						"An icon on the desktop catches your eye: a Z filled in with bricks, sort of like the old " +
+						"Zork logo, but subtly different. Could it be a Zork clone game? Well, text games are " +
+						"pretty dorky, but any port in a storm, right?\n\n" +
+						"Press P to double-click on the Z icon.\n\n" +
+						"Press L to leave the computer and go outside.";
 		}
 	}
 	
