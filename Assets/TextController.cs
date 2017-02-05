@@ -11,8 +11,6 @@ public class TextController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		// I don't think I need the spacecounter variable any more.
-		spacecounter = 1;
 		myState = States.Welcome;
 		}
 	
