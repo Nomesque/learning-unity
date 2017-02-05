@@ -132,14 +132,14 @@ public class TextController : MonoBehaviour {
 	
 	void state_game_start() {
 		text.text = "The screen to your right goes blank, then displays a large black window with " +
-					"an ascii outline of one large word: " +
-					" =====\\    /====\\    =====\\    | |    // \n" +
-  					"| |    \\  //     \\   | |   \\   | |   // \n" +
+					"an ascii outline of one large word:\n\n" +
+					" =====\\\\    //====\\\\    ====\\\\    | |    // \n" +
+  					"| |    \\\\  //     \\\\   | |   \\\\   | |   // \n" +
   					"| |    // ||       ||  | |   ||   | |  // \n" +
   					"| |===<<  ||       ||  | |==<<    | |<< \n" +
-  					"| |    \\ ||       ||  | |   \\   | |  \\ \n" +
-  					"| |    //  \\     //   | |    \\  | |   \\ \n" +
-  					" =====//    \\===//    | |     || | |    \\ \n";
+  					"| |    \\\\ ||       ||  | |   \\\\   | |  \\\\ \n" +
+  					"| |    //  \\\\     //   | |    \\\\  | |   \\\\ \n" +
+  					" =====//    \\\\===//    | |     || | |    \\\\ \n";
   	}
   					
   					
