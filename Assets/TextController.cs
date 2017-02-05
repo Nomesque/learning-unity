@@ -5,7 +5,7 @@ using System.Collections;
 public class TextController : MonoBehaviour {
 	
 	public Text text;
-	private enum States{Wrong_answer1, Wrong_answer2. Welcome, Game_start, Computer, Basement, Bottom_of_stairs, Landing, Top_of_stairs, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
+	private enum States{Wrong_answer1, Wrong_answer2, Welcome, Game_start, Computer, Basement, Bottom_of_stairs, Landing, Top_of_stairs, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
 	private States myState;
 	// Not using this CookieCount variable yet; I haven't figured out how to add an extra text box to the canvas.
 	public int CookieCount;
