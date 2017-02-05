@@ -5,13 +5,15 @@ using System.Collections;
 public class TextController : MonoBehaviour {
 	
 	public Text text;
-	int spacecounter;
-	private enum States{Wronganswer1, Welcome, Game_start, Computer, Basement, Bottom_of_stairs, Landing, Top_of_stairs, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
+	private enum States{Wrong_answer1, Wrong_answer2. Welcome, Game_start, Computer, Basement, Bottom_of_stairs, Landing, Top_of_stairs, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
 	private States myState;
+	// Not using this CookieCount variable yet; I haven't figured out how to add an extra text box to the canvas.
+	public int CookieCount;
 	
 	// Use this for initialization
 	void Start () {
 		myState = States.Welcome;
+		CookieCount = 0;
 		}
 	
 	// Update is called once per frame
@@ -35,7 +37,7 @@ public class TextController : MonoBehaviour {
 		if (myState == States.Landing) {
 			state_landing();
 		}
-		if (myState == States.Wronganswer1) {
+		if (myState == States.Wrong_answer1) {
 			state_wronganswer1();
 		}
 	}
@@ -94,14 +96,15 @@ public class TextController : MonoBehaviour {
 		
 		// Explain the issue with lack of consent if user presses T
 		if (Input.GetKeyDown(KeyCode.T)) {
-			myState = States.Wronganswer1;
+			myState = States.Wrong_answer1;
 		}
 	}
 	void state_wronganswer1() {
-		text.text = "Sexual consent doesn't exist where a person is unconscious, asleep, or drugged. " +
-					"Touching someone who's too drunk to participate or to understand what they're " +
-					"doing isn't just 'taking advantage' - it's sexual assault.\n\n" +
-					"Press SPACE to go back to the basement.";
+		text.text = "DAH DUMMMMMMM\n\n" +
+					"You screwed up. There's no consent involved if all parties involved aren't fully conscious " +
+					"and aware of the full proceedings. At best, this is sexual assault - at worst, rape. Don't " +
+					"be an arsehole: don't have sex with people who are unconscious or asleep.\n\n" +
+					"Press the SPACE key to go back to the basement.";
 		//Send the player back to the basement
 		if (Input.GetKeyDown(KeyCode.Space)){
 			myState = States.Basement;
@@ -142,33 +145,21 @@ public class TextController : MonoBehaviour {
   					
   					
 	void state_landing() {
-		text.text = "Hey, brave move! But you have a challenge to face before you can get out.\n\n" +
-				"A flash of light dazzles you, then fades away. When your eyes clear, you " +
-				"can see a large, dark form on your couch. It might be... someone lying there? " +
-				"You creep closer to figure out what it is, and as you do so, you move from between " +
-				"the shape and a monitor, letting light flood over it. It groans and moves. It's " +
-				"human! And... female? The person starts to sit up, then flops back into a prone " +
-				"position.\n\n" +
-				"'I'm so drunk,' she says. 'I can't even sit up. Wow, I've never been this drunk.' " +
-				"She starts to snore quietly.\n\n" +
-				"Press C to get her comfortable and make sure she won't choke if she throws up.\n\n" +
-				"Press T to take off the blanket and touch her.\n\n";
-		
-		// Change place to the landing if user presses C
-		if (Input.GetKeyDown(KeyCode.C)) {
-			myState = States.Landing;
+		CookieCount = CookieCount + 1;
+		text.text = "You surmounted the first challenge, and avoided sexually assaulting someone. " +
+					"Congratulations! Have a cookie.\n\n" +
+					"You walk up the stairs, but pause on the landing. In front of you is a man, " +
+					"pants around his ankles, mooning you.\n\n" +
+					"Press F to fondle his butt cheeks.\n" +
+					"Press L to shake your head in confusion and leave the scene.";
+		// Change state to a 'wrong answer' message if user presses F
+		if (Input.GetKeyDown(KeyCode.F)) {
+			myState = States.Wrong_answer2;
 		}
 		
-		// Change place to the computer if user presses T
-		if (Input.GetKeyDown(KeyCode.T)) {
-			text.text = "DAH DUMMMMMMM\n\n" +
-						"You screwed up. There's no consent involved if all parties involved aren't fully conscious " +
-						"and aware of the full proceedings. At best, this is sexual assault - at worst, rape. Don't " +
-						"be an arsehole: don't have sex with people who are unconscious or asleep.\n\n" +
-						"Press the SPACE key to go back to the basement.";
-			if (Input.GetKeyDown(KeyCode.Space)){
-				myState = States.Basement;
-			}
+		// Change place to the top of the stairs if user presses L
+		if (Input.GetKeyDown(KeyCode.L)) {
+			myState = States.Top_of_stairs;
 		}
 	}		
   					
