@@ -161,10 +161,11 @@ public class TextController : MonoBehaviour {
 		
 		// Change place to the computer if user presses T
 		if (Input.GetKeyDown(KeyCode.T)) {
-			text.text = "Sexual consent doesn't exist where a person is unconscious, asleep, or drugged. " +
-				"Touching someone who's too drunk to participate or to understand what they're " +
-					"doing isn't just 'taking advantage' - it's sexual assault.\n\n" +
-					"Press SPACE to go back to the basement.";
+			text.text = "DAH DUMMMMMMM\n\n" +
+						"You screwed up. There's no consent involved if all parties involved aren't fully conscious " +
+						"and aware of the full proceedings. At best, this is sexual assault - at worst, rape. Don't " +
+						"be an arsehole: don't have sex with people who are unconscious or asleep.\n\n" +
+						"Press the SPACE key to go back to the basement.";
 			if (Input.GetKeyDown(KeyCode.Space)){
 				myState = States.Basement;
 			}
