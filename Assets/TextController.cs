@@ -154,14 +154,33 @@ public class TextController : MonoBehaviour {
 					"Press L to shake your head in confusion and leave the scene.";
 		// Change state to a 'wrong answer' message if user presses F
 		if (Input.GetKeyDown(KeyCode.F)) {
+			//need to create this function
 			myState = States.Wrong_answer2;
 		}
 		
 		// Change place to the top of the stairs if user presses L
 		if (Input.GetKeyDown(KeyCode.L)) {
+			// need to create this function
 			myState = States.Top_of_stairs;
 		}
 	}		
+	
+	void state_top_of_stairs() {
+		CookieCount = CookieCount + 1;
+		text.text = "Congratulations! Another sexual assault adroitly avoided. " +
+					"Have another cookie!\n\n" +
+					"You continue walking up the stairs, open the door at the top, and walk " +
+					"out into the hallway. You can hear music thumping out in the back yard. " +
+					"A group of teenage boys walk past, graciouslessly staggering around you when " +
+					"you fail to get out of their way. The smell of cheap beer follows them in a " +
+					"wave of scent. Looks like your little sister is holding an illicit party while " +
+					"the folks are away.\n\n" +
+					"A teenage girl walks out of the kitchen towards you, then her eyes brighten. " +
+					"'Hey!' she says, bouncing over to you. She puts her arms around your neck and " +
+					"kisses you, her tongue sliding over your lips.\n\n" +
+					"Press T to take her up to your room.\n" +
+					"Press L to head out to the lounge room.\n";
+	}
   					
   					
   					
