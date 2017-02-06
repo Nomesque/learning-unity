@@ -5,7 +5,7 @@ using System.Collections;
 public class TextController : MonoBehaviour {
 	
 	public Text text;
-	private enum States{Wrong_answer1, Wrong_answer2, Welcome, Game_start, Computer, Basement, Bottom_of_stairs, Landing, Top_of_stairs, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
+	private enum States{Wrong_answer1, Wrong_answer2, Welcome, Game_start, Computer, Basement, Bottom_of_stairs, Landing, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
 	private States myState;
 	// Not using this CookieCount variable yet; I haven't figured out how to add an extra text box to the canvas.
 	public int CookieCount;
@@ -39,6 +39,12 @@ public class TextController : MonoBehaviour {
 		}
 		if (myState == States.Wrong_answer1) {
 			state_wronganswer1();
+		}
+		if (myState == States.Back_hallway) {
+			state_back_hallway();
+		}
+		if (myState == States.Wrong_answer2) {
+			state_wronganswer2();
 		}
 	}
 	
@@ -150,22 +156,31 @@ public class TextController : MonoBehaviour {
 					"Congratulations! Have a cookie.\n\n" +
 					"You walk up the stairs, but pause on the landing. In front of you is a man, " +
 					"pants around his ankles, mooning you.\n\n" +
-					"Press F to fondle his butt cheeks.\n" +
+					"Press T to fondle his butt cheeks.\n" +
 					"Press L to shake your head in confusion and leave the scene.";
 		// Change state to a 'wrong answer' message if user presses F
-		if (Input.GetKeyDown(KeyCode.F)) {
+		if (Input.GetKeyDown(KeyCode.T)) {
 			//need to create this function
 			myState = States.Wrong_answer2;
 		}
 		
 		// Change place to the top of the stairs if user presses L
 		if (Input.GetKeyDown(KeyCode.L)) {
-			// need to create this function
-			myState = States.Top_of_stairs;
+			myState = States.Back_hallway;
 		}
 	}		
 	
-	void state_top_of_stairs() {
+	void state_wronganswer2 () {
+		text.text = "DAHHHH DUMMMMMMM.\n\n" +
+					"Voluntary display of skin - even skin of sexually-loaded body parts like buttocks, chest, " +
+					"or genitals - does not equal consent to being touched on those body parts. Seeing /= permission. \n\n" +
+					"Press SPACE to go back to the basement.";
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			myState = States.Basement;
+		}
+	}
+	
+	void state_back_hallway() {
 		CookieCount = CookieCount + 1;
 		text.text = "Congratulations! Another sexual assault adroitly avoided. " +
 					"Have another cookie!\n\n" +
@@ -180,6 +195,16 @@ public class TextController : MonoBehaviour {
 					"kisses you, her tongue sliding over your lips.\n\n" +
 					"Press T to take her up to your room.\n" +
 					"Press L to head out to the lounge room.\n";
+		if (Input.GetKeyDown(KeyCode.F)) {
+			//need to create this function
+			myState = States.Wrong_answer2;
+		}
+		
+		// Change place to the top of the stairs if user presses L
+		if (Input.GetKeyDown(KeyCode.L)) {
+			// need to create this function
+			myState = States.Back_hallway;
+		}
 	}
   					
   					
