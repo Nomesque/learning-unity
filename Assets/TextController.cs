@@ -5,7 +5,7 @@ using System.Collections;
 public class TextController : MonoBehaviour {
 	
 	public Text text;
-	private enum States{Wrong_answer1, Wrong_answer2, Welcome, Game_start, Computer, Basement, Bottom_of_stairs, Landing, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
+	private enum States{Wrong_answer1, Wrong_answer2, Wrong_answer3, Welcome, Game_start, Computer, Basement, Bottom_of_stairs, Landing, Back_hallway, Loungeroom, Bathroom, Bedroom, Front_hallway, Front_yard, Footpath };
 	private States myState;
 	// Not using this CookieCount variable yet; I haven't figured out how to add an extra text box to the canvas.
 	public int CookieCount;
@@ -158,9 +158,8 @@ public class TextController : MonoBehaviour {
 					"pants around his ankles, mooning you.\n\n" +
 					"Press T to fondle his butt cheeks.\n" +
 					"Press L to shake your head in confusion and leave the scene.";
-		// Change state to a 'wrong answer' message if user presses F
+		// Change state to a 'wrong answer' message if user presses T
 		if (Input.GetKeyDown(KeyCode.T)) {
-			//need to create this function
 			myState = States.Wrong_answer2;
 		}
 		
@@ -195,15 +194,15 @@ public class TextController : MonoBehaviour {
 					"kisses you, her tongue sliding over your lips.\n\n" +
 					"Press T to take her up to your room.\n" +
 					"Press L to head out to the lounge room.\n";
-		if (Input.GetKeyDown(KeyCode.F)) {
+		if (Input.GetKeyDown(KeyCode.T)) {
 			//need to create this function
-			myState = States.Wrong_answer2;
+			myState = States.Wrong_answer3;
 		}
 		
 		// Change place to the top of the stairs if user presses L
 		if (Input.GetKeyDown(KeyCode.L)) {
 			// need to create this function
-			myState = States.Back_hallway;
+			myState = States.Loungeroom;
 		}
 	}
   					
