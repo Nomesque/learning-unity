@@ -205,7 +205,23 @@ public class TextController : MonoBehaviour {
 			myState = States.Loungeroom;
 		}
 	}
-  					
+  	
+	void state_wrong_answer3() {
+		text.text = "You've put yourself in a difficult situation, here. If this teenager is under the " +
+					"age of consent but you're over the age of consent, then there's a good chance you're " +
+					"breaking the law, even if she's perfectly willing to do anything you want. " +
+					"Sexual consent requires not only that the participants enthusiastically participate " +
+					"without coercion, but also that they fully understand what it is that they're " +
+					"participating in. Age of consent laws are in place partially out of concern that " +
+					"younger people won't fully comprehend the possible consequences of their sexual acts. " +
+					"If in doubt - don't.\n\n" +
+					"Press SPACE to continue.";
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			// take the user back to the basement when they press the SPACE key.
+			myState = States.Basement;
+		}
+	
+	}			
   					
   					
 }
